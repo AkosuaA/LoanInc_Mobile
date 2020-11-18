@@ -16,12 +16,12 @@ Clone this repository on your computer with the following command: `git clone ht
 
 ### Direct Setup
 
-After cloning the repository, run `npm install` from the root of the directory. This will install all the project dependencies.
-In the secrets.js file set the api url
-After that, set up and run your emulator.
-Once your emulator is up, run `npx react-native start` to start Metro bundler
-After, run `npx react-native run-android` to run the application. 
-If everything is set up correctly, you should see the login page for LoanInc Mobile.
+1. After cloning the repository, run `npm install` from the root of the directory. This will install all the project dependencies.
+2. In the secrets.js file set the api url.
+3. After that, set up and run your emulator.
+4. Once your emulator is up, run `npx react-native start` to start Metro bundler.
+5. After, run `npx react-native run-android` to run the application. 
+6. If everything is set up correctly, you should see the login page for LoanInc Mobile.
 
 ## Authenticating in Dev and Staging Environments
 
