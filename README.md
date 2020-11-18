@@ -17,6 +17,7 @@ Clone this repository on your computer with the following command: `git clone ht
 ### Direct Setup
 
 After cloning the repository, run `npm install` from the root of the directory. This will install all the project dependencies.
+In the secrets.js file set the api url
 After that, set up and run your emulator.
 Once your emulator is up, run `npx react-native start` to start Metro bundler
 After, run `npx react-native run-android` to run the application. 
