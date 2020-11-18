@@ -36,17 +36,8 @@ const CustomerDetailsScreen = ({navigation}) => {
     percent_expected: 0,
     amount_remaining: 0,
     percent_remaining: 0,
+    loan_date: null,
   })
-  
-  // React.useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerLeft: () => (
-  //       <TouchableHighlight>
-  //         <Icon name="queue" size={16} color="#000" onPress={console.log("pressed!")}/>
-  //       </TouchableHighlight>
-  //     ),
-  //   });
-  // }, [navigation]);
 
   useEffect(() => {
     const getCustomerAsync = async () => {
@@ -86,12 +77,13 @@ const CustomerDetailsScreen = ({navigation}) => {
               return result;
             }, 0);
             setPaymentData({
-              amount_loaned: amount_loaned,
-              amount_paid: amount_paid,
+              loan_date: loan_date.format("Do MMMM YYYY"),
+              amount_loaned: amount_loaned.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+              amount_paid: amount_paid.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
               percent_paid: (amount_loaned > 0) ? Number((amount_paid/amount_loaned).toFixed(2)) : 0,
-              expected_payment: Number(expected_payment.toFixed(2)),
+              expected_payment: Number(expected_payment.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
               percent_expected: (amount_loaned > 0) ? Number((expected_payment/amount_loaned).toFixed(2)) : 0,
-              amount_remaining: amount_loaned - amount_paid,
+              amount_remaining: (amount_loaned - amount_paid).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
               percent_remaining: (amount_loaned > 0) ? Number(((amount_loaned - amount_paid)/amount_loaned).toFixed(2)) : 0,
             });
           })
@@ -249,7 +241,7 @@ const CustomerDetailsScreen = ({navigation}) => {
           <Separator/>
           <View style={styles.chartContainer}>
             <View style={styles.paymentInfo}>
-              <Text>Amount Loaned: {`Ghc ${paymentData.amount_loaned}`}</Text>
+              <Text>Amount Loaned: {`Ghc ${paymentData.amount_loaned}`} | Loan Date: {paymentData.loan_date}</Text>
               <ProgressBar
                 styleAttr="Horizontal"
                 indeterminate={false}

@@ -67,7 +67,7 @@ const HomeScreen = ({navigation}) =>  {
   const handleSearch = text => {
     const query = text.toUpperCase();
     const newData = customerList.filter((item) => {
-      const itemData = `${item.title.toUpperCase()} ${item.first_name.toUpperCase()} ${item.last_name.toUpperCase()}`;
+      const itemData = `${item.first_name.toUpperCase()} ${item.last_name.toUpperCase()}`;
       return itemData.indexOf(query) > -1;
     });
     setUserRequest({data: newData})

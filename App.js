@@ -68,7 +68,6 @@ export default App = ({navigation}) => {
   const authContextValue = useMemo(
     () => ({
       signIn: async (data) => {
-        console.log("sign in");
         if (
           data &&
           data.email !== undefined &&

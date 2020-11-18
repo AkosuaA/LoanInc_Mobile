@@ -23,19 +23,19 @@ const LoginScreen = ({navigation}) => {
 
   const handleSignIn = () => {
     const rules = {
-        email: 'required|email',
-        password: 'required|string|min:6|max:40'
+        Email: 'required|email',
+        Password: 'required|string|min:6|max:40'
     };
 
     const data = {
-        email: email,
-        password: password
+        Email: email,
+        Password: password
     };
 
     const messages = {
         required: field => `${field} is required`,
-        'email.email': 'Please enter a valid email address',
-        'password.min': 'Password must be between 6 - 40 characters'
+        'Email.email': 'Please enter a valid email address',
+        'Password.min': 'Password must be between 6 - 40 characters'
     };
 
     validateAll(data, rules, messages)
@@ -77,7 +77,7 @@ const LoginScreen = ({navigation}) => {
           placeholderTextColor="#003f5c"
           onChangeText={onChangeEmail}
           keyboardType="email-address"
-          errorMessage={SignInErrors ? SignInErrors.email : null}
+          errorMessage={SignInErrors ? SignInErrors.Email : null}
           inputContainerStyle={{borderBottomWidth:0}}
         />
       </View>
@@ -90,7 +90,7 @@ const LoginScreen = ({navigation}) => {
           placeholderTextColor="#003f5c"
           errorStyle={{ color: 'red'}}
           onChangeText={onChangePassword}
-          errorMessage={SignInErrors ? SignInErrors.password : null}
+          errorMessage={SignInErrors ? SignInErrors.Password : null}
           inputContainerStyle={{borderBottomWidth:0}}
         />
       </View>
